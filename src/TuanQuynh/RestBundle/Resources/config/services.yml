@@ -1,0 +1,20 @@
+parameters:
+    rest_api.event.jwt_response_listener.class: TuanQuynh\RestBundle\EventListener\JWTResponseListener
+    rest_api.event.jwt_created_listener.class: TuanQuynh\RestBundle\EventListener\JWTCreatedListener
+    rest_api.event.jwt_decoded_listener.class: TuanQuynh\RestBundle\EventListener\JWTDecodedListener
+
+services:
+    # Listeners
+    rest_api.event.jwt_response_listener:
+        class: %rest_api.event.jwt_response_listener.class%
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+        arguments: ['@service_container']
+    rest_api.event.jwt_created_listener:
+        class: %rest_api.event.jwt_created_listener.class%
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJWTCreated }
+    rest_api.event.jwt_decoded_listener:
+        class: %rest_api.event.jwt_decoded_listener.class%
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_decoded, method: onJWTDecoded }

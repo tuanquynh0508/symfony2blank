@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             //For DoctrineFixturesBundle
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            //LexikJWTAuthenticationBundle
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
             //Idesigner Bundle
             new TuanQuynh\HomeBundle\TuanQuynhHomeBundle(),
             new TuanQuynh\RestBundle\TuanQuynhRestBundle(),
