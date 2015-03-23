@@ -1,0 +1,5 @@
+test_rest:
+  resource: "@TuanQuynhRestBundle/Controller/DefaultController.php"
+  type: rest
+  prefix: /
+  #name_prefix: api_

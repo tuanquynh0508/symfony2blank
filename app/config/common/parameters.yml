@@ -1,0 +1,19 @@
+parameters:
+
+#-EMAIL CONFIG #######################################
+
+  mailer_delivery_address: tuanquynh0508@gmail.com
+
+  #FOR LOGGER
+  mail_send_logger: no-reply@i-designer.net
+  mail_receive_logger: tuanquynh0508@gmail.com
+  mail_subject_logger: 'A critical error occurred'
+
+#- DATABASE CONFIG ###################################
+
+  database_default_driver: pdo_mysql
+  database_default_host: 127.0.0.1
+  database_default_port: null
+  database_default_name: tuanquynh_symfony2
+  database_default_user: root
+  database_default_password: 123456

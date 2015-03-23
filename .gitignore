@@ -1,0 +1,16 @@
+/app/logs/
+/app/cache/
+/web/bundles/
+/web/uploads/
+/vendor/
+/bin/
+/build/
+/app/bootstrap.php.cache
+#/app/config/parameters.yml
+#/app/config/*/parameters.yml
+/app/var/sessions/*
+!app/var/sessions/.gitkeep
+/composer.phar
+/node_modules/
+.idea/
+composer.lock

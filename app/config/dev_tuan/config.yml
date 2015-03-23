@@ -1,0 +1,6 @@
+imports:
+    - { resource: ../dev/config.yml }
+    - { resource: parameters.yml }
+
+swiftmailer:
+    disable_delivery: false

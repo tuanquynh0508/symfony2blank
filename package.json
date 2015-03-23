@@ -1,0 +1,24 @@
+{
+  "author": "TuanQuynh",
+  "name": "tuanquynh-symfony2",
+  "homepage": "http://i-designer.net",
+  "version": "0.0.1",
+  "description": "TuanQuynh Symfony 2",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "~0.1.3",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-exec": "^0.4.6",
+    "grunt-php": "^1.1.1",
+    "grunt-phpcs": "^0.2.3",
+    "grunt-phplint": "0.0.5",
+    "grunt-phpmd": "^0.1.1",
+    "grunt-phpunit": "^0.3.6"
+  }
+}

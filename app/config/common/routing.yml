@@ -1,0 +1,8 @@
+tuan_quynh_rest:
+  resource: "@TuanQuynhRestBundle/Resources/config/routing.yml"
+  type :    rest
+  prefix:   /api/v1
+
+tuan_quynh_home:
+  resource: "@TuanQuynhHomeBundle/Resources/config/routing.yml"
+  prefix:   /
