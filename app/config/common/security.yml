@@ -8,7 +8,7 @@ security:
     # providers:
     #     main:
     #         entity:
-    #             class: TuanQuynh\RestBundle\Entity\AdminUser
+    #             class: TuanQuynh\RestBundle\Entity\User
     #             property: email
 
     firewalls:

@@ -138,8 +138,14 @@ monolog:
             subject:      %mail_subject_logger%
             level:        critical
 
+# lexik_jwt_authentication:
+#     private_key_path: %kernel.root_dir%/var/jwt/private.pem   # ssh private key path
+#     public_key_path:  %kernel.root_dir%/var/jwt/public.pem    # ssh public key path
+#     pass_phrase:      '123456'                                      # ssh key pass phrase
+#     token_ttl:        86400                                   # token ttl - defaults to 86400
+# Lexik JWT Authentication
 lexik_jwt_authentication:
-    private_key_path: %kernel.root_dir%/var/jwt/private.pem   # ssh private key path
-    public_key_path:  %kernel.root_dir%/var/jwt/public.pem    # ssh public key path
-    pass_phrase:      '123456'                                      # ssh key pass phrase
-    token_ttl:        86400                                   # token ttl - defaults to 86400
+    private_key_path:   %private_key_path%
+    public_key_path:    %public_key_path%
+    pass_phrase:        %pass_phrase%
+    token_ttl:          %token_ttl%
