@@ -80,24 +80,24 @@ module.exports = function (grunt) {
       phpdoc: {
         command: 'php app/console api:doc:dump --format=html > build/tuanquynh-api-doc.html'
       },
-      reload_statistics_database: {
+      reload_default_database: {
         command: function(env) {
           if(typeof(env) === 'undefined') {
             env = 'dev';
           }
-          var cmd = 'php app/console doctrine:database:drop --force --env=ENV_NAME --connection=default && ' +
-                    'php app/console doctrine:database:create --env=ENV_NAME --connection=default && ' +
-                    'php app/console doctrine:schema:create --env=ENV_NAME --em=default && ' +
-                    'php app/console doctrine:fixtures:load --append --env=ENV_NAME --fixtures=src/TuanQuynh/RestBundle/DataFixtures/ORM --em=default';
+          var cmd = 'php app/console doctrine:database:drop --force --env=ENV_NAME --connection=system_database && ' +
+                    'php app/console doctrine:database:create --env=ENV_NAME --connection=system_database && ' +
+                    'php app/console doctrine:schema:create --env=ENV_NAME --em=system_database && ' +
+                    'php app/console doctrine:fixtures:load --append --env=ENV_NAME --fixtures=src/TuanQuynh/RestBundle/DataFixtures/ORM --em=system_database';
           return cmd.replace(/ENV_NAME/g, env);
         }
-      },
-      reload_test_statistics_database: {
-        command:'php app/console doctrine:database:drop --force --env=test --connection=default && ' +
-                'php app/console doctrine:database:create --env=test --connection=default && ' +
-                'php app/console doctrine:schema:create --env=test --em=default && ' +
-                'php app/console doctrine:fixtures:load --append --env=test --fixtures=src/TuanQuynh/RestBundle/DataFixtures/Tests --em=default'
-      }
+      }//,
+      // reload_test_defaut_database: {
+      //   command:'php app/console doctrine:database:drop --force --env=test --connection=default && ' +
+      //           'php app/console doctrine:database:create --env=test --connection=default && ' +
+      //           'php app/console doctrine:schema:create --env=test --em=default && ' +
+      //           'php app/console doctrine:fixtures:load --append --env=test --fixtures=src/TuanQuynh/RestBundle/DataFixtures/Tests --em=default'
+      // }
     }
 		////////////////////////////////////////////////////////////////////////
 	}); //End grunt.initConfig

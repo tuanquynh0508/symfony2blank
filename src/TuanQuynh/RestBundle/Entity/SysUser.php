@@ -8,18 +8,18 @@ use JMS\Serializer\Annotation\Expose;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-use TuanQuynh\RestBundle\Entity\Role;
+use TuanQuynh\RestBundle\Entity\SysRole;
 
 /**
- * AdminUser
+ * SysUser
  *
- * @ORM\Table(name="AdminUser", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"})})
+ * @ORM\Table(name="SysUser", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"})})
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  *
  * @ExclusionPolicy("all")
  */
-class AdminUser implements AdvancedUserInterface
+class SysUser implements AdvancedUserInterface
 {
 
   /**
@@ -125,18 +125,18 @@ class AdminUser implements AdvancedUserInterface
   /**
    * @var \Doctrine\Common\Collections\Collection
    *
-   * @ORM\ManyToMany(targetEntity="Nordnet\AdminBundle\Entity\AdminRole", inversedBy="adminUser")
-   * @ORM\JoinTable(name="AdminUserRole",
+   * @ORM\ManyToMany(targetEntity="TuanQuynh\RestBundle\Entity\SysRole", inversedBy="SysUser")
+   * @ORM\JoinTable(name="SysUserRole",
    *   joinColumns={
-   *     @ORM\JoinColumn(name="admin_user_id", referencedColumnName="id")
+   *     @ORM\JoinColumn(name="sys_user_id", referencedColumnName="id")
    *   },
    *   inverseJoinColumns={
-   *     @ORM\JoinColumn(name="admin_role_id", referencedColumnName="id")
+   *     @ORM\JoinColumn(name="sys_role_id", referencedColumnName="id")
    *   }
    * )
    * @Expose
    */
-  private $adminRole;
+  private $sysRole;
 
   /**
    * Constructor
@@ -145,7 +145,7 @@ class AdminUser implements AdvancedUserInterface
   {
     $this->salt = md5(uniqid(null, true));
     $this->isDeleted = 0;
-    $this->adminRole = new \Doctrine\Common\Collections\ArrayCollection();
+    $this->sysRole = new \Doctrine\Common\Collections\ArrayCollection();
   }
 
   /**
@@ -162,7 +162,7 @@ class AdminUser implements AdvancedUserInterface
    * Set lastname
    *
    * @param string $lastname
-   * @return AdminUser
+   * @return SysUser
    */
   public function setLastname($lastname)
   {
@@ -185,7 +185,7 @@ class AdminUser implements AdvancedUserInterface
    * Set firstname
    *
    * @param string $firstname
-   * @return AdminUser
+   * @return SysUser
    */
   public function setFirstname($firstname)
   {
@@ -208,7 +208,7 @@ class AdminUser implements AdvancedUserInterface
    * Set email
    *
    * @param string $email
-   * @return AdminUser
+   * @return SysUser
    */
   public function setEmail($email)
   {
@@ -231,7 +231,7 @@ class AdminUser implements AdvancedUserInterface
    * Set description
    *
    * @param string $description
-   * @return AdminUser
+   * @return SysUser
    */
   public function setDescription($description)
   {
@@ -254,7 +254,7 @@ class AdminUser implements AdvancedUserInterface
    * Set password
    *
    * @param string $password
-   * @return AdminUser
+   * @return SysUser
    */
   public function setPassword($password)
   {
@@ -277,7 +277,7 @@ class AdminUser implements AdvancedUserInterface
    * Set salt
    *
    * @param string $salt
-   * @return AdminUser
+   * @return SysUser
    */
   public function setSalt($salt)
   {
@@ -300,7 +300,7 @@ class AdminUser implements AdvancedUserInterface
    * Set isDeleted
    *
    * @param boolean $deleted
-   * @return AdminUser
+   * @return SysUser
    */
   public function setIsDeleted($isDeleted)
   {
@@ -324,7 +324,7 @@ class AdminUser implements AdvancedUserInterface
    *
    * @ORM\PrePersist
    *
-   * @return AdminUser
+   * @return SysUser
    */
   public function setCreatedAt()
   {
@@ -348,7 +348,7 @@ class AdminUser implements AdvancedUserInterface
    *
    * @ORM\PreUpdate
    *
-   * @return AdminUser
+   * @return SysUser
    */
   public function setUpdatedAt()
   {
@@ -371,7 +371,7 @@ class AdminUser implements AdvancedUserInterface
    * Set deletedAt
    *
    * @param \DateTime $deletedAt
-   * @return AdminUser
+   * @return SysUser
    */
   public function setDeletedAt($deletedAt)
   {
@@ -391,47 +391,47 @@ class AdminUser implements AdvancedUserInterface
   }
 
   /**
-   * Add adminRole
+   * Add SysRole
    *
-   * @param \Nordnet\AdminBundle\Entity\AdminRole $adminRole
-   * @return AdminUser
+   * @param \TuanQuynh\RestBundle\Entity\SysRole $sysRole
+   * @return SysUser
    */
-  public function addAdminRole(AdminRole $adminRole)
+  public function addSysRole(SysRole $sysRole)
   {
-    $this->adminRole[] = $adminRole;
+    $this->sysRole[] = $sysRole;
 
     return $this;
   }
 
   /**
-   * Remove adminRole
+   * Remove SysRole
    *
-   * @param \Nordnet\AdminBundle\Entity\AdminRole $adminRole
+   * @param \TuanQuynh\RestBundle\Entity\SysRole $sysRole
    */
-  public function removeAdminRole(AdminRole $adminRole)
+  public function removeSysRole(SysRole $sysRole)
   {
-    $this->adminRole->removeElement($adminRole);
+    $this->sysRole->removeElement($sysRole);
   }
 
   /**
-   * Clear all adminRole
-   * @return AdminUser
+   * Clear all SysRole
+   * @return SysUser
    */
-  public function clearAdminRole()
+  public function clearSysRole()
   {
-    $this->adminRole->clear();
+    $this->sysRole->clear();
 
     return $this;
   }
 
   /**
-   * Get adminRole
+   * Get SysRole
    *
    * @return \Doctrine\Common\Collections\Collection
    */
-  public function getAdminRole()
+  public function getSysRole()
   {
-    return $this->adminRole;
+    return $this->sysRole;
   }
 
   /**
@@ -447,7 +447,7 @@ class AdminUser implements AdvancedUserInterface
    */
   public function getRoles()
   {
-    $actions = $this->getAdminActions();
+    $actions = $this->getSysActions();
     $roles = array(
       'ROLE_USER'
     );
@@ -467,20 +467,20 @@ class AdminUser implements AdvancedUserInterface
   {
   }
 
-  public function getAdminRoles()
+  public function getSysRoles()
   {
     $roles = array();
-    foreach ($this->adminRole as $adminRole) {
-      $roles[] = $adminRole->getName();
+    foreach ($this->sysRole as $sysRole) {
+      $roles[] = $sysRole->getName();
     }
     return $roles;
   }
 
-  public function getAdminActions()
+  public function getSysActions()
   {
     $actions = array();
-    foreach ($this->adminRole as $adminRole) {
-      foreach ($adminRole->getAdminAction() as $action) {
+    foreach ($this->sysRole as $sysRole) {
+      foreach ($sysRole->getSysAction() as $action) {
         $actions[] = $action->getCode();
       }
     }

@@ -1,15 +1,15 @@
 security:
-    # encoders:
-    #     TuanQuynh\RestBundle\Entity\AdminUser:
-    #         algorithm: sha512
-    #         encode-as-base64: true
-    #         iterations: 10
+    encoders:
+        TuanQuynh\RestBundle\Entity\SysUser:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
 
-    # providers:
-    #     main:
-    #         entity:
-    #             class: TuanQuynh\RestBundle\Entity\User
-    #             property: email
+    providers:
+        main:
+            entity:
+                class: TuanQuynh\RestBundle\Entity\SysUser
+                property: email
 
     firewalls:
         # dev:

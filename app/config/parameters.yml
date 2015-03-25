@@ -6,3 +6,7 @@ parameters:
     mailer_password: null
     locale: en
     secret: 61ef13d69610f86b98c8dbd917270d0a5c0d0cc7
+    private_key_path: '%kernel.root_dir%/var/jwt/private.pem'
+    public_key_path: '%kernel.root_dir%/var/jwt/public.pem'
+    pass_phrase: 123456
+    token_ttl: 86400
