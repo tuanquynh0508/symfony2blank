@@ -85,10 +85,10 @@ module.exports = function (grunt) {
           if(typeof(env) === 'undefined') {
             env = 'dev';
           }
-          var cmd = 'php app/console doctrine:database:drop --force --env=ENV_NAME --connection=system_database && ' +
-                    'php app/console doctrine:database:create --env=ENV_NAME --connection=system_database && ' +
-                    'php app/console doctrine:schema:create --env=ENV_NAME --em=system_database && ' +
-                    'php app/console doctrine:fixtures:load --append --env=ENV_NAME --fixtures=src/TuanQuynh/RestBundle/DataFixtures/ORM --em=system_database';
+          var cmd = 'php app/console doctrine:database:drop --force --env=ENV_NAME --connection=default_con && ' +
+                    'php app/console doctrine:database:create --env=ENV_NAME --connection=default_con && ' +
+                    'php app/console doctrine:schema:create --env=ENV_NAME --em=default_em && ' +
+                    'php app/console doctrine:fixtures:load --append --env=ENV_NAME --fixtures=src/TuanQuynh/RestBundle/DataFixtures/ORM --em=default_em';
           return cmd.replace(/ENV_NAME/g, env);
         }
       }//,
