@@ -47,9 +47,9 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        default_connection: default_con
+        default_connection: default
         connections:
-            default_con:
+            default:
                 driver:   "%database_default_driver%"
                 host:     "%database_default_host%"
                 port:     "%database_default_port%"
@@ -65,10 +65,10 @@ doctrine:
         #     path:     "%database_path%"
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        default_entity_manager: default_em
+        default_entity_manager: default
         entity_managers:
-            default_em:
-                connection: default_con
+            default:
+                connection: default
                 mappings:
                     TuanQuynhHomeBundle:  ~
                     TuanQuynhRestBundle: ~

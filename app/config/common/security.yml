@@ -12,9 +12,9 @@ security:
                 property: email
 
     firewalls:
-        # dev:
-        #     pattern:  ^/api/(_(profiler|wdt|doc))/
-        #     security: false
+        dev:
+            pattern:  ^/api/((_profiler|_wdt|doc))
+            security: false
 
         login:
             pattern:  ^/api/login
