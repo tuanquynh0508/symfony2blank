@@ -43,8 +43,8 @@ class JWTResponseListener
       'lastname' => $user->getLastname() ,
       'firstname' => $user->getFirstname() ,
       'email' => $user->getUsername() ,
-      'roles' => $user->getAdminRoles() ,
-      'actions' => $user->getAdminActions()
+      'roles' => $user->getSysRoles() ,
+      'actions' => $user->getSysActions()
     );
 
     $event->setData($data);

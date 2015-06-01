@@ -22,8 +22,12 @@ class JWTCreatedListener
       return;
     }
 
+    $expiration = new \DateTime('+1 day');
+    $expiration->setTime(2, 0, 0);
+
     $payload = $event->getData();
     $payload['ip'] = $request->getClientIp();
+    $payload['exp'] = $expiration->getTimestamp();
 
     $event->setData($payload);
   }
